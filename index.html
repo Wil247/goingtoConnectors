@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>English Class | Going to + Connectors</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1e4a6b;
+            --primary-light: #3083b0;
+            --primary-dark: #0f2c3f;
+            --bg-light: #f0f7fc;
+            --bg-soft: #e1eff6;
+            --accent: #f9b43a;
+            --text-dark: #1e2f3a;
+            --text-muted: #4a6270;
+            --white: #ffffff;
+            --success: #2b7a4b;
+            --error: #c0392b;
+            --shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--bg-light) 0%, #ddedf5 100%);
+            min-height: 100vh;
+            color: var(--text-dark);
+        }
+
+        header {
+            background: linear-gradient(105deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 1rem 1.8rem;
+            position: sticky;
+            top: 0;
+            z-index: 200;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+        }
+
+        .header-top h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-align: center;
+            flex: 1;
+            margin: 0;
+        }
+
+        .header-date {
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.35rem 1rem;
+            border-radius: 40px;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .header-sub {
+            margin-top: 0.6rem;
+            font-size: 0.85rem;
+            opacity: 0.9;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 0.6rem;
+        }
+
+        nav {
+            background: white;
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            padding: 0.9rem 1rem;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid #cbdde6;
+        }
+
+        .nav-btn {
+            background: var(--bg-soft);
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.6rem 1.4rem;
+            border-radius: 50px;
+            color: var(--primary-dark);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .nav-btn.active,
+        .nav-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(30, 74, 107, 0.25);
+        }
+
+        main {
+            max-width: 1300px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .section {
+            display: none;
+            animation: fade 0.3s ease;
+        }
+
+        .section.active-section {
+            display: block;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--primary-dark);
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 70px;
+            height: 4px;
+            background: var(--accent);
+            display: block;
+            margin: 0.5rem auto;
+            border-radius: 4px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.96);
+            border-radius: 32px;
+            padding: 1.8rem;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(48, 131, 176, 0.2);
+        }
+
+        .btn {
+            padding: 0.6rem 1.6rem;
+            border-radius: 40px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+            transform: scale(0.97);
+        }
+
+        .btn-secondary {
+            background: #e2e8f0;
+            color: var(--primary-dark);
+        }
+
+        .vocab-card {
+            text-align: center;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        .vocab-emoji {
+            font-size: 5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .vocab-word {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: capitalize;
+        }
+
+        .vocab-trans {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .speaker-icon {
+            font-size: 2.5rem;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .speaker-icon:hover {
+            transform: scale(1.1);
+        }
+
+        /* grammar */
+        .grammar-box {
+            background: #f8fbfd;
+            border-left: 6px solid var(--primary);
+            padding: 1rem 1.4rem;
+            border-radius: 20px;
+            margin-bottom: 1.2rem;
+        }
+
+        .grammar-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .formula {
+            background: var(--primary);
+            color: white;
+            padding: 0.7rem;
+            border-radius: 36px;
+            text-align: center;
+            font-family: monospace;
+            margin: 0.8rem 0;
+        }
+
+        .connector-subsection {
+            margin: 1.2rem 0 0.8rem 0;
+            padding-left: 0.5rem;
+            border-left: 3px solid var(--accent);
+        }
+
+        .connector-subsection h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .example-mini {
+            background: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 16px;
+            margin: 0.3rem 0;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sentences-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .sentence-item {
+            background: white;
+            border-radius: 18px;
+            padding: 0.8rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.8rem;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+            border: 1px solid #d9e6f0;
+        }
+
+        .sentence-text {
+            flex: 1;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .speaker-small {
+            font-size: 1.5rem;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .badge {
+            background: var(--primary);
+            color: white;
+            padding: 0.2rem 0.7rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            display: inline-block;
+            margin: 0.2rem;
+        }
+
+        /* quiz */
+        .quiz-question-wrapper {
+            background: var(--bg-light);
+            padding: 1.2rem 1.5rem;
+            border-radius: 28px;
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .quiz-question-text {
+            font-size: 1.2rem;
+            line-height: 1.5;
+            text-align: left;
+            flex: 1;
+        }
+
+        .quiz-speaker-btn {
+            font-size: 2rem;
+            cursor: pointer;
+            background: var(--primary);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            transition: 0.2s;
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .quiz-speaker-btn:hover {
+            background: var(--primary-light);
+            transform: scale(1.02);
+        }
+
+        .blank {
+            display: inline-block;
+            min-width: 110px;
+            border-bottom: 3px solid var(--primary);
+            margin: 0 0.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            background: #fef9e3;
+            padding: 0 0.2rem;
+        }
+
+        .options-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            justify-content: center;
+            margin: 0.8rem 0;
+        }
+
+        .opt-btn {
+            background: white;
+            border: 2px solid #cbdde6;
+            padding: 0.6rem 1.2rem;
+            border-radius: 60px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.1s;
+        }
+
+        .opt-btn.selected {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .quiz-feedback {
+            margin-top: 1rem;
+            padding: 0.8rem;
+            border-radius: 28px;
+            text-align: center;
+            display: none;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: var(--bg-soft);
+            border-radius: 8px;
+            margin: 0.8rem 0;
+        }
+
+        .progress-fill {
+            width: 0%;
+            height: 100%;
+            background: var(--primary);
+            border-radius: 8px;
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        /* games */
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .game-tile {
+            background: white;
+            border-radius: 28px;
+            padding: 1.6rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: var(--shadow);
+        }
+
+        .game-tile:hover {
+            transform: translateY(-6px);
+            background: #eef4f9;
+        }
+
+        .matching-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.8rem;
+        }
+
+        .match-card {
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            min-height: 85px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .match-card.matched {
+            background: var(--success);
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        .rain-container {
+            position: relative;
+            background: #cfe3ed;
+            height: 400px;
+            border-radius: 32px;
+            overflow: hidden;
+            margin: 1rem 0;
+            border: 2px solid var(--primary-light);
+        }
+
+        .falling {
+            position: absolute;
+            padding: 0.6rem 1.2rem;
+            border-radius: 60px;
+            font-weight: bold;
+            cursor: pointer;
+            animation: fall linear forwards;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        @keyframes fall {
+            0% {
+                top: -50px;
+            }
+
+            100% {
+                top: 420px;
+            }
+        }
+
+        .rain-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .scramble-area {
+            text-align: center;
+        }
+
+        .scramble-word {
+            font-size: 2.2rem;
+            letter-spacing: 8px;
+            background: #e9f0f5;
+            padding: 1rem;
+            border-radius: 40px;
+            font-weight: 700;
+            margin: 1rem 0;
+        }
+
+        .timer {
+            font-size: 2rem;
+            font-weight: 800;
+            font-family: monospace;
+            background: var(--primary-dark);
+            color: white;
+            display: inline-block;
+            padding: 0.3rem 1.2rem;
+            border-radius: 60px;
+            margin-bottom: 1rem;
+        }
+
+        .scramble-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1rem 0;
+            font-weight: 600;
+        }
+
+        .global-reset {
+            position: fixed;
+            bottom: 1.8rem;
+            right: 1.8rem;
+            background: var(--primary-dark);
+            color: white;
+            padding: 0.8rem 1.3rem;
+            border-radius: 60px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 99;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+            background: var(--primary-dark);
+            color: white;
+            padding: 0.8rem;
+            overflow: hidden;
+            margin-top: 3rem;
+        }
+
+        .marquee {
+            white-space: nowrap;
+            display: inline-block;
+            animation: scrollText 38s linear infinite;
+        }
+
+        @keyframes scrollText {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        @media (max-width: 680px) {
+            .sentences-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .matching-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .quiz-question-text {
+                font-size: 1rem;
+            }
+
+            .falling {
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .scramble-word {
+                font-size: 1.5rem;
+                letter-spacing: 4px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-top">
+            <div style="width:40px;"></div>
+            <h1>📖 English class</h1>
+            <div class="header-date" id="currentDate"></div>
+        </div>
+        <div class="header-sub">👨‍🏫 Docente: Wilfran Luis Decena &nbsp;&nbsp;|&nbsp;&nbsp; 🌟 Valor del mes:
+            Solidaridad y Compromiso</div>
+    </header>
+
+    <nav>
+        <button class="nav-btn active" data-section="vocabulary">Vocabulary</button>
+        <button class="nav-btn" data-section="grammar">Grammar</button>
+        <button class="nav-btn" data-section="quiz">Quiz</button>
+        <button class="nav-btn" data-section="games">Games Learning</button>
+    </nav>
+
+    <main>
+        <!-- VOCABULARY -->
+        <section id="vocabulary" class="section active-section">
+            <h2 class="section-title">📡 Communication Tools</h2>
+            <div class="card vocab-card">
+                <div class="vocab-emoji" id="vocabEmoji">📻</div>
+                <div class="vocab-word" id="vocabWord">radio</div>
+                <div class="vocab-trans" id="vocabTranslation">radio</div>
+                <div class="speaker-icon" onclick="speakWordNow()">🔊 <span style="font-size:0.8rem;">listen</span>
+                </div>
+                <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 0.5rem;">
+                    <button class="btn btn-secondary" onclick="prevWord()">◀ Previous</button>
+                    <button class="btn btn-primary" onclick="nextWord()">Next ▶</button>
+                </div>
+                <div id="vocabProgress" style="margin-top:1rem;">1 / 9</div>
+            </div>
+        </section>
+
+        <!-- GRAMMAR -->
+        <section id="grammar" class="section">
+            <h2 class="section-title">✍️ Grammar: Going to + Connectors</h2>
+            <div class="card">
+                <div class="grammar-box">
+                    <div class="grammar-title">🎯 Topic: Future Plans with Going to and Connectors (Travel, Culture &
+                        Communication)</div>
+                    <div style="font-weight:700; margin-top:0.5rem;">1. What is "going to"?</div>
+                    <p>Going to is used to talk about future plans and intentions, especially for trips, culture, and
+                        experiences.</p>
+                    <div class="formula">Subject + am/is/are + going to + verb</div>
+                    <div class="example-mini"><span>📌 Example:</span><span>I am going to travel and explore new
+                            places.</span><span class="speaker-small" style="font-size:1rem;"
+                            onclick="speakText('I am going to travel and explore new places.')">🔊</span></div>
+                </div>
+                <div class="grammar-box">
+                    <div style="font-weight:700;">2. What are connectors?</div>
+                    <p>Connectors are words used to link ideas and organize sentences. They show time, sequence, and
+                        cause and result.</p>
+                </div>
+                <div class="grammar-box">
+                    <div style="font-weight:700; margin-bottom:0.8rem;">3. Types of connectors</div>
+                    <div class="connector-subsection">
+                        <h4>⏰ A. Time connectors</h4>
+                        <div><span class="badge">BEFORE</span> <span class="badge">AFTER</span> <span
+                                class="badge">WHILE</span></div>
+                        <div class="example-mini"><span>📌 I am going to check my phone <strong>BEFORE</strong> the
+                                trip.</span><span class="speaker-small" style="font-size:1rem;"
+                                onclick="speakText('I am going to check my phone BEFORE the trip.')">🔊</span></div>
+                        <div class="example-mini"><span>📌 I am going to read a travel magazine <strong>AFTER</strong>
+                                the flight.</span><span class="speaker-small" style="font-size:1rem;"
+                                onclick="speakText('I am going to read a travel magazine AFTER the flight.')">🔊</span>
+                        </div>
+                        <div class="example-mini"><span>📌 I am going to use my tablet <strong>WHILE</strong> I am
+                                traveling.</span><span class="speaker-small" style="font-size:1rem;"
+                                onclick="speakText('I am going to use my tablet WHILE I am traveling.')">🔊</span></div>
+                    </div>
+                    <div class="connector-subsection">
+                        <h4>📋 B. Sequence connectors</h4>
+                        <div><span class="badge">FIRST</span> <span class="badge">THEN</span> <span
+                                class="badge">FINALLY</span></div>
+                        <div class="example-mini"><span>📌 <strong>FIRST</strong>, I am going to search information on
+                                my tablet.</span><span class="speaker-small" style="font-size:1rem;"
+                                onclick="speakText('FIRST, I am going to search information on my tablet.')">🔊</span>
+                        </div>
+                        <div class="example-mini"><span>📌 <strong>THEN</strong>, I am going to send an email to book a
+                                tour.</span><span class="speaker-small" style="font-size:1rem;"
+                                onclick="speakText('THEN, I am going to send an email to book a tour.')">🔊</span></div>
+                        <div class="example-mini"><span>📌 <strong>FINALLY</strong>, I am going to write a postcard
+                                about my experience.</span><span class="speaker-small" style="font-size:1rem;"
+                                onclick="speakText('FINALLY, I am going to write a postcard about my experience.')">🔊</span>
+                        </div>
+                    </div>
+                    <div class="connector-subsection">
+                        <h4>⚡ C. Cause and result connectors</h4>
+                        <div><span class="badge">BECAUSE</span> <span class="badge">SO</span> <span
+                                class="badge">THEN</span></div>
+                        <div class="example-mini"><span>📌 I love culture, <strong>SO</strong> I am going to read a
+                                newspaper.</span><span class="speaker-small" style="font-size:1rem;"
+                                onclick="speakText('I love culture, SO I am going to read a newspaper.')">🔊</span>
+                        </div>
+                        <div class="example-mini"><span>📌 I am going to send a letter <strong>BECAUSE</strong> I want
+                                to know people.</span><span class="speaker-small" style="font-size:1rem;"
+                                onclick="speakText('I am going to send a letter BECAUSE I want to know people.')">🔊</span>
+                        </div>
+                        <div class="example-mini"><span>📌 I have my phone, <strong>THEN</strong> I am going to
+                                communicate with my family.</span><span class="speaker-small" style="font-size:1rem;"
+                                onclick="speakText('I have my phone, THEN I am going to communicate with my family.')">🔊</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="grammar-box">
+                    <div style="font-weight:800; margin-bottom:0.8rem;">📖 24 ORACIONES DE EJEMPLO (CON AUDIO)</div>
+                    <div class="sentences-grid" id="allSentencesGrid"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUIZ -->
+        <section id="quiz" class="section">
+            <h2 class="section-title">🎧 Quiz: Escucha la oración completa y completa</h2>
+            <div class="card" id="quizContainer">
+                <div id="quizActive">
+                    <div class="quiz-header"><span id="qCounter">1/10</span><span>⭐ <span
+                                id="scoreValue">0</span></span></div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="quizFill"></div>
+                    </div>
+                    <div class="quiz-question-wrapper">
+                        <div class="quiz-question-text" id="quizQuestionDisplay"></div>
+                        <div class="quiz-speaker-btn" onclick="speakFullCorrectSentence()">🔊 Escuchar</div>
+                    </div>
+                    <div id="optionsArea"></div>
+                    <div class="quiz-feedback" id="feedbackMsg"></div>
+                    <div style="text-align:center; margin-top:1rem;"><button id="nextQuizBtn"
+                            class="btn btn-primary hidden" onclick="nextQuestion()">Next →</button></div>
+                </div>
+                <div id="quizResultArea" class="hidden" style="text-align:center;">
+                    <h3>🎉 Resultado</h3>
+                    <p id="finalResult"></p><button class="btn btn-primary" onclick="resetQuiz()">🔁 Intentar de
+                        nuevo</button><button class="btn btn-secondary" onclick="goToSection('games')">Menú</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- GAMES -->
+        <section id="games" class="section">
+            <h2 class="section-title">🎮 Play & Learn</h2>
+            <div id="gamesMenu" class="games-grid">
+                <div class="game-tile" onclick="startMatchingGame()">🧩 Match vocabulary + image<div
+                        style="font-size:0.8rem;">Escucha al emparejar</div>
+                </div>
+                <div class="game-tile" onclick="startRainGame()">🌧️ Word Rain<div style="font-size:0.8rem;">¡Solo
+                        palabras VERDES!</div>
+                </div>
+                <div class="game-tile" onclick="startScrambleGame()">🔀 Scramble Word<div style="font-size:0.8rem;">
+                        ¡Nueva palabra al acertar!</div>
+                </div>
+            </div>
+            <div id="matchingGameArea" class="card hidden">
+                <h3 style="text-align:center;">🔗 Empareja vocabulario con imagen</h3>
+                <div id="matchingGrid" class="matching-grid"></div>
+                <div style="text-align:center; margin:1rem;"><button class="btn btn-secondary" onclick="backToGames()">←
+                        Volver al menú</button></div>
+            </div>
+            <div id="rainGameArea" class="card hidden">
+                <h3 style="text-align:center;">🌧️ Word Rain - Haz clic en las palabras VERDES (vocabulario)</h3>
+                <div class="rain-stats"><span>✔ Score: <strong id="rainScoreSpan">0</strong></span><span>❌ Errors:
+                        <strong id="rainErrorsSpan">0</strong> / 5</span></div>
+                <div id="rainCanvas" class="rain-container"></div>
+                <div style="text-align:center; margin-top:0.5rem;"><button class="btn btn-secondary"
+                        onclick="stopRainAndBack()">← Volver al menú</button></div>
+            </div>
+            <div id="scrambleGameArea" class="card hidden">
+                <div class="scramble-area">
+                    <div class="timer" id="timerDisplay">01:00</div>
+                    <div class="scramble-stats"><span>🏆 Aciertos: <strong id="scrambleScore">0</strong></span></div>
+                    <div class="scramble-word" id="scrambledWord"></div><input type="text" id="guessInput"
+                        placeholder="Escribe la palabra"
+                        style="padding:12px; border-radius:60px; border:2px solid #cbdde6; width:80%; margin:1rem 0; font-size:1rem; text-align:center;"><br><button
+                        class="btn btn-primary" id="checkScrambleBtn">Comprobar</button>
+                    <div id="scrambleFeedback" style="margin-top:1rem; font-weight:500;"></div><button
+                        class="btn btn-secondary" style="margin-top:1.5rem;" onclick="backToGames()">← Volver al
+                        menú</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <button class="global-reset" onclick="globalReset()">⟳ Volver al inicio</button>
+    <footer>
+        <div style="overflow:hidden; white-space:nowrap;">
+            <div class="marquee">👨‍🏫 Docente: Wilfran Luis Decena &nbsp;&nbsp;|&nbsp;&nbsp; 🌟 Valor del mes:
+                Solidaridad y Compromiso &nbsp;&nbsp;|&nbsp;&nbsp; 🤝 Ser respetuoso &nbsp;&nbsp;|&nbsp;&nbsp; 🙋
+                Levantar la mano &nbsp;&nbsp;|&nbsp;&nbsp; 😴 No dormirse &nbsp;&nbsp;|&nbsp;&nbsp; 🪑 Sentarse
+                correctamente &nbsp;&nbsp;|&nbsp;&nbsp; 📚 La práctica hace al maestro</div>
+        </div>
+    </footer>
+
+    <script>
+        // ==================== DATOS ====================
+        const vocabList = [
+            { word: "radio", emoji: "📻", trans: "radio" }, { word: "newspaper", emoji: "📰", trans: "periódico" }, { word: "magazine", emoji: "📖", trans: "revista" },
+            { word: "phone", emoji: "📱", trans: "teléfono" }, { word: "email", emoji: "📧", trans: "correo" }, { word: "television", emoji: "📺", trans: "televisión" },
+            { word: "postcard", emoji: "💌", trans: "postal" }, { word: "tablet", emoji: "📲", trans: "tableta" }, { word: "letter", emoji: "✉️", trans: "carta" }
+        ];
+
+        const allSentences = [
+            "I am going to check my phone BEFORE the trip to the hotel.", "I am going to read a magazine AFTER the trip to the beach.", "I am going to use my tablet WHILE I am in the lounge.",
+            "You are going to send an email AFTER the trip to the hotel.", "You are going to read a newspaper BEFORE the dinner at the restaurant.", "You are going to listen to the radio WHILE you are at the beach.",
+            "He is going to check his phone BEFORE the trip to the restaurant.", "He is going to watch television AFTER the trip to the hotel.", "He is going to write a letter BECAUSE he wants to communicate.",
+            "She is going to read a magazine WHILE she is in the lounge.", "She is going to send an email AFTER the trip to the beach.", "She is going to write a postcard FINALLY at the hotel.",
+            "It is going to play on the radio AFTER the program.", "It is going to show on the television BEFORE the news.", "It is going to appear in the newspaper BECAUSE it is important.",
+            "We are going to check our phone FIRST at the hotel.", "We are going to read a newspaper THEN at the restaurant.", "We are going to send an email FINALLY from the beach.",
+            "You are going to use your tablet BEFORE the trip to the hotel.", "You are going to write a letter AFTER the trip to the restaurant.", "You are going to watch television WHILE you are in the lounge.",
+            "They are going to send an email FIRST at the hotel.", "They are going to read a magazine THEN at the beach.", "They are going to write a postcard FINALLY in the restaurant."
+        ];
+
+        const connectorsList = ["BEFORE", "AFTER", "WHILE", "FIRST", "THEN", "FINALLY", "SO", "BECAUSE", "THEN"];
+        function shuffleArr(arr) { for (let i = arr.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[arr[i], arr[j]] = [arr[j], arr[i]]; } return arr; }
+
+        function speakText(txt) { if (window.speechSynthesis) { window.speechSynthesis.cancel(); let u = new SpeechSynthesisUtterance(txt); u.lang = 'en-US'; u.rate = 0.85; window.speechSynthesis.speak(u); } }
+        function speakWordNow() { speakText(vocabList[currentVocabIdx].word); }
+
+        let currentVocabIdx = 0;
+        function updateVocab() { let v = vocabList[currentVocabIdx]; document.getElementById('vocabEmoji').innerText = v.emoji; document.getElementById('vocabWord').innerText = v.word; document.getElementById('vocabTranslation').innerText = v.trans; document.getElementById('vocabProgress').innerText = `${currentVocabIdx + 1}/${vocabList.length}`; }
+        function nextWord() { currentVocabIdx = (currentVocabIdx + 1) % vocabList.length; updateVocab(); speakWordNow(); }
+        function prevWord() { currentVocabIdx = (currentVocabIdx - 1 + vocabList.length) % vocabList.length; updateVocab(); speakWordNow(); }
+        updateVocab();
+
+        function loadGrammarSentences() {
+            const grid = document.getElementById('allSentencesGrid');
+            if (!grid) return;
+            grid.innerHTML = '';
+            allSentences.forEach(sentence => {
+                const div = document.createElement('div');
+                div.className = 'sentence-item';
+                div.innerHTML = `<div class="sentence-text">📌 ${sentence}</div><div class="speaker-small" onclick="speakText('${sentence.replace(/'/g, "\\'")}')">🔊</div>`;
+                grid.appendChild(div);
+            });
+        }
+
+        // ==================== QUIZ ====================
+        let currentQuiz = [], quizIndex = 0, quizScore = 0, selectedVocab = null, selectedConnector = null;
+        let currentFullSentenceForAudio = "";
+
+        function buildQuizQuestions() {
+            let questions = [];
+            let usedSentences = shuffleArr([...allSentences]).slice(0, 10);
+            for (let sentence of usedSentences) {
+                let vocabWord = vocabList.find(v => sentence.toLowerCase().includes(v.word.toLowerCase()))?.word || "phone";
+                let connectorFound = connectorsList.find(c => sentence.toUpperCase().includes(c));
+                let connectorTarget = connectorFound || "BEFORE";
+                let sentenceWithBlanks = sentence.replace(new RegExp(`\\b${vocabWord}\\b`, 'i'), "______").replace(new RegExp(`\\b${connectorTarget}\\b`, 'i'), "______");
+                let vocabOptions = shuffleArr(vocabList.map(v => v.word)).slice(0, 4);
+                if (!vocabOptions.includes(vocabWord)) vocabOptions[0] = vocabWord;
+                let connectorOptions = shuffleArr([...connectorsList]).slice(0, 4);
+                if (!connectorOptions.includes(connectorTarget)) connectorOptions[0] = connectorTarget;
+                questions.push({ textBlanks: sentenceWithBlanks, correctVocab: vocabWord, correctConnector: connectorTarget, vocabOptions, connectorOptions, fullSentence: sentence });
+            }
+            return questions;
+        }
+
+        function renderQuiz() {
+            let q = currentQuiz[quizIndex];
+            let displayHtml = q.textBlanks.replace(/______/g, '<span class="blank">______</span>');
+            document.getElementById('quizQuestionDisplay').innerHTML = displayHtml;
+            currentFullSentenceForAudio = q.fullSentence;
+            let optsDiv = document.getElementById('optionsArea');
+            optsDiv.innerHTML = `<div><strong>📘 Vocabulario:</strong><div class="options-row" id="vocabOptionsRow"></div></div><div style="margin-top:1rem;"><strong>🔗 Conector:</strong><div class="options-row" id="connectorOptionsRow"></div></div>`;
+            let vocabRow = document.getElementById('vocabOptionsRow');
+            q.vocabOptions.forEach(opt => { let btn = document.createElement('div'); btn.className = 'opt-btn'; btn.innerText = opt; btn.onclick = () => selectVocab(btn, opt); vocabRow.appendChild(btn); });
+            let connRow = document.getElementById('connectorOptionsRow');
+            q.connectorOptions.forEach(opt => { let btn = document.createElement('div'); btn.className = 'opt-btn'; btn.innerText = opt; btn.onclick = () => selectConnector(btn, opt); connRow.appendChild(btn); });
+            document.getElementById('feedbackMsg').innerHTML = ''; document.getElementById('feedbackMsg').style.display = 'none';
+            document.getElementById('nextQuizBtn').classList.add('hidden'); selectedVocab = null; selectedConnector = null;
+        }
+
+        function speakFullCorrectSentence() { if (currentFullSentenceForAudio) speakText(currentFullSentenceForAudio); }
+
+        function selectVocab(el, val) { document.querySelectorAll('#vocabOptionsRow .opt-btn').forEach(b => b.classList.remove('selected')); el.classList.add('selected'); selectedVocab = val; checkComplete(); }
+        function selectConnector(el, val) { document.querySelectorAll('#connectorOptionsRow .opt-btn').forEach(b => b.classList.remove('selected')); el.classList.add('selected'); selectedConnector = val; checkComplete(); }
+        function checkComplete() {
+            if (selectedVocab && selectedConnector) {
+                let q = currentQuiz[quizIndex]; let isCorrect = (selectedVocab === q.correctVocab && selectedConnector === q.correctConnector);
+                let fbDiv = document.getElementById('feedbackMsg'); fbDiv.style.display = 'block';
+                if (isCorrect) { quizScore++; document.getElementById('scoreValue').innerText = quizScore; fbDiv.innerHTML = `✅ ¡Correcto! +1 → ${q.fullSentence} <span style="font-size:1.2rem; cursor:pointer;" onclick="speakText('${q.fullSentence.replace(/'/g, "\\'")}')">🔊</span>`; speakText(q.fullSentence); }
+                else { fbDiv.innerHTML = `❌ Incorrecto. Correcto: "${q.correctVocab} + ${q.correctConnector}".<br><span style="font-size:1.2rem; cursor:pointer;" onclick="speakText('${q.fullSentence.replace(/'/g, "\\'")}')">🔊 Escuchar oración correcta</span>`; }
+                document.querySelectorAll('.opt-btn').forEach(b => b.style.pointerEvents = 'none'); document.getElementById('nextQuizBtn').classList.remove('hidden');
+            }
+        }
+        function nextQuestion() { quizIndex++; if (quizIndex < currentQuiz.length) { renderQuiz(); document.getElementById('quizFill').style.width = `${(quizIndex + 1) * 10}%`; document.getElementById('qCounter').innerText = `${quizIndex + 1}/10`; } else { finishQuiz(); } }
+        function finishQuiz() { document.getElementById('quizActive').classList.add('hidden'); document.getElementById('quizResultArea').classList.remove('hidden'); document.getElementById('finalResult').innerHTML = `Obtuviste ${quizScore}/10. ${quizScore === 10 ? "🌟 Perfecto!" : quizScore >= 7 ? "👍 Muy bien!" : "📚 Sigue practicando"}`; speakText(`Your score is ${quizScore} out of 10`); }
+        function resetQuiz() { currentQuiz = buildQuizQuestions(); quizIndex = 0; quizScore = 0; document.getElementById('scoreValue').innerText = 0; document.getElementById('quizActive').classList.remove('hidden'); document.getElementById('quizResultArea').classList.add('hidden'); renderQuiz(); document.getElementById('quizFill').style.width = '10%'; document.getElementById('qCounter').innerText = '1/10'; }
+
+        // ==================== GAMES ====================
+        let matchingPairs = [], matchLock = false, matchFirst = null;
+        function startMatchingGame() { document.getElementById('gamesMenu').classList.add('hidden'); document.getElementById('matchingGameArea').classList.remove('hidden'); let selectedVocabMatch = shuffleArr([...vocabList]).slice(0, 6); let pairList = []; selectedVocabMatch.forEach(v => { pairList.push({ display: v.word, matchId: v.word }); pairList.push({ display: v.emoji, matchId: v.word }); }); matchingPairs = shuffleArr(pairList); let grid = document.getElementById('matchingGrid'); grid.innerHTML = ''; matchingPairs.forEach((p, idx) => { let cardDiv = document.createElement('div'); cardDiv.className = 'match-card'; cardDiv.innerText = p.display; cardDiv.dataset.match = p.matchId; cardDiv.onclick = () => flipMatch(cardDiv); grid.appendChild(cardDiv); }); matchLock = false; matchFirst = null; }
+        function flipMatch(card) { if (matchLock || card.classList.contains('matched')) return; if (!matchFirst) { matchFirst = card; card.style.background = '#f9b43a'; } else { if (matchFirst.dataset.match === card.dataset.match && matchFirst !== card) { matchFirst.classList.add('matched'); card.classList.add('matched'); speakText(matchFirst.dataset.match); matchFirst = null; } else { matchLock = true; setTimeout(() => { if (matchFirst && !matchFirst.classList.contains('matched')) matchFirst.style.background = '#1e4a6b'; if (card && !card.classList.contains('matched')) card.style.background = '#1e4a6b'; matchFirst = null; matchLock = false; }, 700); } } }
+
+        // WORD RAIN
+        let rainInterval, rainScore = 0, rainErrors = 0, rainActiveGame = false;
+        function startRainGame() {
+            document.getElementById('gamesMenu').classList.add('hidden');
+            document.getElementById('rainGameArea').classList.remove('hidden');
+            rainScore = 0; rainErrors = 0; rainActiveGame = true;
+            document.getElementById('rainScoreSpan').innerText = '0';
+            document.getElementById('rainErrorsSpan').innerText = '0';
+            document.getElementById('rainCanvas').innerHTML = '';
+            if (rainInterval) clearInterval(rainInterval);
+            rainInterval = setInterval(() => {
+                if (!rainActiveGame) return;
+                const isCorrect = Math.random() > 0.45;
+                let word;
+                if (isCorrect) { const randomVocab = vocabList[Math.floor(Math.random() * vocabList.length)]; word = randomVocab.word; }
+                else { const wrongWordsList = ["apple", "car", "house", "dog", "cat", "chair", "table", "window", "mountain"]; word = wrongWordsList[Math.floor(Math.random() * wrongWordsList.length)]; }
+                const fallDiv = document.createElement('div'); fallDiv.className = 'falling'; fallDiv.innerText = word; fallDiv.style.backgroundColor = isCorrect ? '#2b7a4b' : '#c0392b'; fallDiv.style.color = 'white'; fallDiv.style.left = Math.random() * 80 + '%'; fallDiv.style.top = '-50px'; const duration = 4 + Math.random() * 2; fallDiv.style.animationDuration = `${duration}s`;
+                fallDiv.onclick = () => { if (!rainActiveGame) return; if (isCorrect) { rainScore++; document.getElementById('rainScoreSpan').innerText = rainScore; speakText(word); fallDiv.remove(); } else { rainErrors++; document.getElementById('rainErrorsSpan').innerText = rainErrors; fallDiv.remove(); if (rainErrors >= 5) { clearInterval(rainInterval); rainActiveGame = false; alert('💀 GAME OVER! Presiona "Volver al menú" y vuelve a iniciar.'); } } };
+                document.getElementById('rainCanvas').appendChild(fallDiv);
+                setTimeout(() => { if (fallDiv.parentNode) fallDiv.remove(); }, duration * 1000);
+            }, 1200);
+        }
+        function stopRainAndBack() { if (rainInterval) clearInterval(rainInterval); rainActiveGame = false; document.getElementById('rainGameArea').classList.add('hidden'); document.getElementById('gamesMenu').classList.remove('hidden'); }
+
+        // SCRAMBLE WORD - NUEVA PALABRA AL ACERTAR
+        let scrambleTimer, timeLeft = 60, scrambleScoreCount = 0, scrambleActive = true;
+        let currentScrambleWord = "";
+
+        function getRandomScrambleWord() {
+            const randomVocab = vocabList[Math.floor(Math.random() * vocabList.length)];
+            return randomVocab.word;
+        }
+
+        function scrambleString(str) {
+            let arr = str.split('');
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr.join('');
+        }
+
+        function loadNewScrambleWord() {
+            if (!scrambleActive) return;
+            currentScrambleWord = getRandomScrambleWord();
+            const scrambled = scrambleString(currentScrambleWord);
+            document.getElementById('scrambledWord').innerText = scrambled.toLowerCase();
+            document.getElementById('guessInput').value = '';
+            document.getElementById('scrambleFeedback').innerHTML = '';
+            document.getElementById('guessInput').focus();
+        }
+
+        function startScrambleGame() {
+            document.getElementById('gamesMenu').classList.add('hidden');
+            document.getElementById('scrambleGameArea').classList.remove('hidden');
+            scrambleActive = true;
+            scrambleScoreCount = 0;
+            timeLeft = 60;
+            document.getElementById('scrambleScore').innerText = '0';
+            document.getElementById('scrambleFeedback').innerHTML = '';
+            document.getElementById('guessInput').disabled = false;
+            document.getElementById('checkScrambleBtn').disabled = false;
+
+            if (scrambleTimer) clearInterval(scrambleTimer);
+
+            loadNewScrambleWord();
+
+            scrambleTimer = setInterval(() => {
+                if (!scrambleActive) return;
+                if (timeLeft <= 0) {
+                    clearInterval(scrambleTimer);
+                    scrambleActive = false;
+                    document.getElementById('guessInput').disabled = true;
+                    document.getElementById('checkScrambleBtn').disabled = true;
+                    document.getElementById('scrambleFeedback').innerHTML = '⏰ ¡TIEMPO AGOTADO! Reinicia el juego.';
+                    alert('⏰ Tiempo finalizado! Tu puntuación: ' + scrambleScoreCount);
+                } else {
+                    timeLeft--;
+                    const mins = Math.floor(timeLeft / 60);
+                    const secs = timeLeft % 60;
+                    document.getElementById('timerDisplay').innerText = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+                }
+            }, 1000);
+
+            document.getElementById('checkScrambleBtn').onclick = () => {
+                if (!scrambleActive) return;
+                const guess = document.getElementById('guessInput').value.trim().toLowerCase();
+                if (guess === currentScrambleWord.toLowerCase()) {
+                    speakText(currentScrambleWord);
+                    scrambleScoreCount++;
+                    document.getElementById('scrambleScore').innerText = scrambleScoreCount;
+                    document.getElementById('scrambleFeedback').innerHTML = '✅ ¡Correcto! Nueva palabra →';
+                    loadNewScrambleWord();
+                } else {
+                    document.getElementById('scrambleFeedback').innerHTML = '❌ Incorrecto, intenta de nuevo';
+                    document.getElementById('guessInput').value = '';
+                    document.getElementById('guessInput').focus();
+                }
+            };
+        }
+
+        function backToGames() {
+            if (rainInterval) clearInterval(rainInterval);
+            rainActiveGame = false;
+            if (scrambleTimer) clearInterval(scrambleTimer);
+            scrambleActive = false;
+            document.getElementById('matchingGameArea').classList.add('hidden');
+            document.getElementById('rainGameArea').classList.add('hidden');
+            document.getElementById('scrambleGameArea').classList.add('hidden');
+            document.getElementById('gamesMenu').classList.remove('hidden');
+        }
+
+        function goToSection(sec) { document.querySelector(`.nav-btn[data-section="${sec}"]`).click(); }
+        function globalReset() { resetQuiz(); currentVocabIdx = 0; updateVocab(); backToGames(); document.querySelector('.nav-btn[data-section="vocabulary"]').click(); }
+
+        document.querySelectorAll('.nav-btn').forEach(btn => { btn.addEventListener('click', () => { document.querySelectorAll('.section').forEach(s => s.classList.remove('active-section')); document.getElementById(btn.dataset.section).classList.add('active-section'); document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); backToGames(); if (btn.dataset.section === 'quiz' && currentQuiz.length === 0) { currentQuiz = buildQuizQuestions(); resetQuiz(); } }); });
+        document.getElementById('currentDate').innerText = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        loadGrammarSentences();
+        currentQuiz = buildQuizQuestions(); resetQuiz();
+    </script>
+</body>
+
+</html>
